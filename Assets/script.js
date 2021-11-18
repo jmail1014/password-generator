@@ -40,15 +40,15 @@ function generatePassword() {
 
   var numberConfirm = window.confirm("Hit OK for numbers.");
     if (numberConfirm) {
-      chosenCharacters = chosenCharacters.concat(numberConfirm);
+      chosenCharacters = chosenCharacters.concat(numbers);
     }
 
   var specialCharacterConfirm = window.confirm("Hit OK for special characters.");
     if (specialCharacterConfirm) {
-      chosenCharacters = chosenCharacters.concat(specialCharacterConfirm);
+      chosenCharacters = chosenCharacters.concat(specialCharacters);
     }
     
-  randomCharacters(passwordCharacters);
+    randomCharacters(passwordCharacters);
 };
 
 var passwordCharacters;
@@ -56,7 +56,8 @@ var passwordCharacters;
 // Generate password with loop of selected character type
 function randomCharacters(length) {
   for (var i = 0; i < length; i++) {
-  var indexCharacters = Math.floor(Math.random() * chosenCharacters.length);
+  var indexCharacters = chosenCharacters[Math.floor(Math.random() * chosenCharacters.length)];
+  console.log(indexCharacters);
   }
 };
 
@@ -71,3 +72,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+randomCharacters();
