@@ -12,6 +12,8 @@ var specialCharacters = ['!', '#', '%', '&', '(', ')', '*', '+', '-', '.', '/', 
 // empty array to hold user's chooses
 var chosenCharacters = [];
 
+var passwordCharacters;
+
 // Return generated password
 function generatePassword() {
   // user chooses how many characters for their password
@@ -51,14 +53,13 @@ function generatePassword() {
     randomCharacters(passwordCharacters);
 };
 
-var passwordCharacters;
-
 // Generate password with loop of selected character type
 function randomCharacters(length) {
   for (var i = 0; i < length; i++) {
-  var indexCharacters = chosenCharacters[Math.floor(Math.random() * chosenCharacters.length)];
-  console.log(indexCharacters);
+    var indexCharacters = chosenCharacters[Math.floor(Math.random() * chosenCharacters.length)];
+    console.log(indexCharacters);
   }
+  
 };
 
 // Write password to the #password input
@@ -67,10 +68,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-}
 
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-randomCharacters();
