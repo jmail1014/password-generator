@@ -50,17 +50,22 @@ function generatePassword() {
       chosenCharacters = chosenCharacters.concat(specialCharacters);
     }
     
-    randomCharacters(passwordCharacters);
+    return randomCharacters(passwordCharacters);
 };
 
 // Generate password with loop of selected character type
 function randomCharacters(length) {
+  var indexCharacters = [];
   for (var i = 0; i < length; i++) {
-    var indexCharacters = chosenCharacters[Math.floor(Math.random() * chosenCharacters.length)];
-    console.log(indexCharacters);
+    indexCharacters.push(chosenCharacters[Math.floor(Math.random() * chosenCharacters.length)]);
   }
+    console.log(indexCharacters.join(''));
+    console.log(length);
   
+    return indexCharacters.join('');
 };
+
+var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -68,7 +73,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
